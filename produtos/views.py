@@ -25,4 +25,4 @@ def cadastrar_produto(request):
 def detalhar_produto(request, produto_id):
     produto = get_object_or_404(Produto, pk=produto_id)
     print(produto)
-    return render(request, 'detalhes_produto.html')
+    return render(request, 'detalhes_produto.html', {'produto': produto})

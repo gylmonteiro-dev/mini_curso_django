@@ -21,7 +21,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from produtos.views import pagina_inicial
+from produtos.views import pagina_inicial, cadastrar_produto, detalhar_produto
 
 '''
 def lista_produtos(request):
@@ -31,5 +31,7 @@ def lista_produtos(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('produtos/', pagina_inicial, name='pagina-inicial')
+    path('produtos/', pagina_inicial, name='pagina-inicial'),
+    path('cadastrar/', cadastrar_produto, name='cadastra-produto'),
+    path('produtos/<int:produto_id>/', detalhar_produto, name='detalha-produto')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

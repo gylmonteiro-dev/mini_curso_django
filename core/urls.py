@@ -14,18 +14,22 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.shortcuts import HttpResponse
+#from django.shortcuts import HttpResponse
 from django.contrib import admin
 from django.urls import path
 
 from django.conf import settings
 from django.conf.urls.static import static
 
+from produtos.views import pagina_inicial
+
+'''
 def lista_produtos(request):
     return HttpResponse('<h1>Seja bem vindo</h1>')
+'''
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('produtos/', lista_produtos, name='lista-produtos')
+    path('produtos/', pagina_inicial, name='pagina-inicial')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

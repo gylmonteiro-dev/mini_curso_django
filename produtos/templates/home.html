@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -36,10 +37,15 @@
     <div class="container mt-4">
       <div class="row">
         <!-- Produto 1 -->
+
+        <!-- Agora vamos receber os dados que estão vindo da view-->
+
+        {% for produto in produtos %}
+
         <div class="col-md-4">
           <div class="card">
             <img
-              src="https://via.placeholder.com/300"
+              src="{{produto.imagem.url}}"
               class="card-img-top"
               alt="Produto 1"
             />
@@ -51,38 +57,7 @@
             </div>
           </div>
         </div>
-        <!-- Produto 2 -->
-        <div class="col-md-4">
-          <div class="card">
-            <img
-              src="https://via.placeholder.com/300"
-              class="card-img-top"
-              alt="Produto 2"
-            />
-            <div class="card-body text-center">
-              <h5 class="card-title">Produto 2</h5>
-              <p class="card-text">Descrição breve do produto.</p>
-              <p class="text-success fw-bold">R$ 149,90</p>
-              <a href="#" class="btn btn-primary">Comprar</a>
-            </div>
-          </div>
-        </div>
-        <!-- Produto 3 -->
-        <div class="col-md-4">
-          <div class="card">
-            <img
-              src="https://via.placeholder.com/300"
-              class="card-img-top"
-              alt="Produto 3"
-            />
-            <div class="card-body text-center">
-              <h5 class="card-title">Produto 3</h5>
-              <p class="card-text">Descrição breve do produto.</p>
-              <p class="text-success fw-bold">R$ 79,90</p>
-              <a href="#" class="btn btn-primary">Comprar</a>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
 

@@ -1,5 +1,10 @@
 from django.shortcuts import render
-
+from .models import Produto
 # Create your views here.
 def pagina_inicial(request):
-    return render(request, 'home.html')
+
+    #Armazenando na variável produtos, todos os objetos que foram resgatados do 
+    produtos = Produto.objects.all()
+
+    
+    return render(request, 'home.html', {'produtos': produtos})
